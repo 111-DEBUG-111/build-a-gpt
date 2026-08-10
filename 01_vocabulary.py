@@ -11,8 +11,8 @@ straight into, and spotting that trap is what makes step 2 feel necessary
 rather than arbitrary.
 """
 
-import grammar
-from display import title, section
+from lib import grammar
+from lib.display import title, section
 
 title(1, "Turning words into numbers")
 

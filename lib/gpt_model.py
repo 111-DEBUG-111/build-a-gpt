@@ -23,8 +23,8 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-import grammar
-import data
+from . import grammar
+from . import data
 
 # Defaults. Step 9 passes its own values; these are here so the model can be
 # built with GPT() and no arguments.

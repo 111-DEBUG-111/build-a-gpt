@@ -26,9 +26,8 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-import grammar
-import data
-from display import title, section, bar, matrix
+from lib import grammar, data, OUTPUTS
+from lib.display import title, section, bar, matrix
 
 torch.manual_seed(1337)
 
@@ -235,8 +234,8 @@ try:
     axes[1].set_xlabel("position"); axes[1].set_title("Individual columns are waves")
     axes[1].legend()
     plt.tight_layout()
-    plt.savefig("positional_encoding.png", dpi=110)
-    print("\n  Saved a picture of it to positional_encoding.png")
+    plt.savefig(OUTPUTS / "positional_encoding.png", dpi=110)
+    print("\n  Saved a picture of it to outputs/positional_encoding.png")
 except Exception as e:                                    # matplotlib is optional
     print(f"\n  (skipped the plot: {e})")
 

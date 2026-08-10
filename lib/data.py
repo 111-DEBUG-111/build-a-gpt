@@ -20,7 +20,7 @@ The names come from PyTorch convention. "Time" is a slightly odd word for
 
 import torch
 
-import grammar
+from . import grammar
 
 # The word <-> number dictionaries from step 1.
 WORD_TO_ID = {w: i for i, w in enumerate(grammar.VOCAB)}

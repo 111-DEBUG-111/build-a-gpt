@@ -34,9 +34,8 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-import grammar
-import data
-from display import title, section, bar, matrix
+from lib import grammar, data
+from lib.display import title, section, bar, matrix
 
 torch.manual_seed(1337)
 

@@ -24,8 +24,8 @@ what the numbers mean. The model works them out for itself while learning.
 
 import torch
 
-import grammar
-from display import title, section, matrix
+from lib import grammar
+from lib.display import title, section, matrix
 
 torch.manual_seed(1337)
 

@@ -37,9 +37,8 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-import grammar
-import data
-from display import title, section, bar
+from lib import grammar, data, OUTPUTS
+from lib.display import title, section, bar
 
 torch.manual_seed(1337)
 
@@ -60,7 +59,7 @@ title(9, "The whole thing: a working GPT")
 #     GPT                  steps 2, 6 and 3 for the outer layers
 #     GPT.generate         the sampling loop, new in this step
 # ---------------------------------------------------------------------------
-from gpt_model import (GPT, D_MODEL, N_HEADS, N_BLOCKS, BLOCK_SIZE, DROPOUT)
+from lib.gpt_model import (GPT, D_MODEL, N_HEADS, N_BLOCKS, BLOCK_SIZE, DROPOUT)
 
 # Training knobs, which are ours rather than the architecture's.
 LEARNING_RATE = 3e-3
@@ -255,8 +254,8 @@ print("""  This is exactly what "prompting" means, with nothing else going on. T
   continuing a sequence, and everything a chat assistant appears to do sits on
   top of this one behaviour.""")
 
-torch.save(model.state_dict(), "gpt.pt")
-print("\n  Saved the trained model to gpt.pt (step 10 will load it).")
+torch.save(model.state_dict(), OUTPUTS / "gpt.pt")
+print("\n  Saved the trained model to outputs/gpt.pt (step 10 will load it).")
 
 # ---------------------------------------------------------------------------
 section("What we left out, and what it would take to get to ChatGPT")

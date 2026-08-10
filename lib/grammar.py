@@ -24,12 +24,13 @@ wrong immediately.
 
 THE RULES OF OUR LANGUAGE  (read "->" as "is made of")
 
-    SENTENCE     -> NOUN_PHRASE VERB_PHRASE .
-    NOUN_PHRASE  -> DETERMINER NOUN
-                  | DETERMINER ADJECTIVE NOUN
-    VERB_PHRASE  -> VERB NOUN_PHRASE
-                  | ADVERB VERB NOUN_PHRASE
-                  | VERB NOUN_PHRASE PREPOSITION NOUN_PHRASE
+    SENTENCE     -> NOUN_PHRASE + VERB_PHRASE.
+    
+    NOUN_PHRASE  -> DETERMINER + NOUN,
+                  | DETERMINER +  ADJECTIVE + NOUN
+    VERB_PHRASE  -> VERB + NOUN_PHRASE,
+                  | ADVERB + VERB + NOUN_PHRASE,
+                  | VERB + NOUN_PHRASE + PREPOSITION + NOUN_PHRASE
 
 So these are legal:
 

@@ -30,8 +30,8 @@ import torch.nn as nn
 import torch.nn.functional as F
 from collections import defaultdict, Counter
 
-import grammar
-from display import title, section, bar
+from lib import grammar
+from lib.display import title, section, bar
 
 torch.manual_seed(1337)
 

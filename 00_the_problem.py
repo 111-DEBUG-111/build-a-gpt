@@ -31,8 +31,8 @@ than a next-word guesser.
 import random
 from collections import defaultdict, Counter
 
-import grammar
-from display import title, section, bar
+from lib import grammar
+from lib.display import title, section, bar
 
 rng = random.Random(0)
 

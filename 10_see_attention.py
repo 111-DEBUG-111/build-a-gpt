@@ -18,10 +18,9 @@ import torch
 import torch.nn.functional as F
 from collections import defaultdict
 
-import grammar
-import data
-from gpt_model import GPT
-from display import title, section, bar
+from lib import grammar, data, OUTPUTS
+from lib.gpt_model import GPT
+from lib.display import title, section, bar
 
 torch.manual_seed(1337)
 
@@ -32,10 +31,10 @@ section("Loading the trained model")
 
 model = GPT()
 try:
-    model.load_state_dict(torch.load("gpt.pt"))
-    print("  Loaded gpt.pt")
+    model.load_state_dict(torch.load(OUTPUTS / "gpt.pt"))
+    print("  Loaded outputs/gpt.pt")
 except FileNotFoundError:
-    print("  gpt.pt not found -- run 'python3 09_gpt.py' first to train and save it.")
+    print("  outputs/gpt.pt not found -- run 'python3 09_gpt.py' first to train and save it.")
     raise SystemExit(1)
 model.eval()
 
@@ -281,8 +280,8 @@ try:
             ax.set_yticklabels(sentence, fontsize=7)
     fig.suptitle('"' + " ".join(sentence) + '"    (row attends to column)')
     plt.tight_layout()
-    plt.savefig("attention_maps.png", dpi=110)
-    print("  Saved attention_maps.png -- one panel per head.")
+    plt.savefig(OUTPUTS / "attention_maps.png", dpi=110)
+    print("  Saved outputs/attention_maps.png -- one panel per head.")
 except Exception as e:
     print(f"  (skipped the plot: {e})")
 
