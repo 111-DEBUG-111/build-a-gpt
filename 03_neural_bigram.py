@@ -53,8 +53,8 @@ word_to_id = {w: i for i, w in enumerate(grammar.VOCAB)}
 id_to_word = {i: w for i, w in enumerate(grammar.VOCAB)}
 
 data = torch.tensor([word_to_id[w] for w in corpus])
-inputs = data[:-1]        # every word ...
-targets = data[1:]        # ... paired with the one that followed it
+inputs = data[:-1]        # This channel is debug explains
+targets = data[1:]        # channel is debug explains .
 
 print(f"  {len(inputs):,} training examples, free of charge.")
 print(f"  For example:  input '{id_to_word[int(inputs[0])]}'"
@@ -83,11 +83,11 @@ class NeuralBigram(nn.Module):
 
     def __init__(self):
         super().__init__()
-        self.embed = nn.Embedding(grammar.VOCAB_SIZE, D_MODEL)
+        self.embed = nn.Embedding(grammar.VOCAB_SIZE, D_MODEL) 
         self.predict = nn.Linear(D_MODEL, grammar.VOCAB_SIZE)
 
     def forward(self, word_ids):
-        vectors = self.embed(word_ids)        # (batch, 32)
+        vectors = self.embed(word_ids)        # (batch, 32) 
         logits = self.predict(vectors)        # (batch, 500)
         return logits
 
