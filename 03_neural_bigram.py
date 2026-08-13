@@ -53,8 +53,8 @@ word_to_id = {w: i for i, w in enumerate(grammar.VOCAB)}
 id_to_word = {i: w for i, w in enumerate(grammar.VOCAB)}
 
 data = torch.tensor([word_to_id[w] for w in corpus])
-inputs = data[:-1]        # This channel is debug explains
-targets = data[1:]        # channel is debug explains .
+inputs = data[:-1]        # every word except the last
+targets = data[1:]        # every word except the first -- the answer key
 
 print(f"  {len(inputs):,} training examples, free of charge.")
 print(f"  For example:  input '{id_to_word[int(inputs[0])]}'"
@@ -174,7 +174,7 @@ print("""  Four lines, repeated a few thousand times:
 
 optimizer = torch.optim.AdamW(model.parameters(), lr=1e-2)
 BATCH_SIZE = 512
-STEPS = 3000
+STEPS = 3000              # steps, not epochs -- about 9.4 passes over the data
 
 print("  step      loss")
 for step in range(STEPS + 1):
